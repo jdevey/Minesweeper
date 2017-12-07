@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<MenuBar fx:id="menu" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cs2410.assn8.controller.MenuController">
+  <menus>
+    <Menu fx:id="gamemodeMenuItem" mnemonicParsing="false" text="Gamemode">
+      <items>
+        <MenuItem mnemonicParsing="false" text="Normal Mode" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>
