@@ -5,6 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs2410/assn8/controller/HBoxController.java" afterPath="$PROJECT_DIR$/src/cs2410/assn8/controller/HBoxController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs2410/assn8/controller/MainController.java" afterPath="$PROJECT_DIR$/src/cs2410/assn8/controller/MainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java" afterPath="$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml" afterPath="$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java" afterPath="$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -75,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogicCenter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LogicCenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="127" column="75" lean-forward="true" selection-start-line="127" selection-start-column="75" selection-end-line="127" selection-end-column="75" />
+            <state relative-caret-position="79">
+              <caret line="109" column="75" lean-forward="true" selection-start-line="109" selection-start-column="75" selection-end-line="109" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+            <state relative-caret-position="-723">
+              <caret line="53" column="28" lean-forward="true" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,10 +103,12 @@
       <file leaf-file-name="Cell.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+            <state relative-caret-position="382">
+              <caret line="65" column="68" lean-forward="true" selection-start-line="65" selection-start-column="68" selection-end-line="65" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1742#2425#0" expanded="true" />
+                <element signature="e#2424#2425#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,8 +131,8 @@
       <file leaf-file-name="HBoxController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/controller/HBoxController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="178">
+              <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,8 +155,8 @@
       <file leaf-file-name="hBox.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="22" column="86" lean-forward="true" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -207,13 +210,13 @@
         <option value="$PROJECT_DIR$/src/cs2410/assn8/controller/MainControl.java" />
         <option value="$PROJECT_DIR$/src/cs2410/assn8/resources/main.fxml" />
         <option value="$PROJECT_DIR$/src/cs2410/assn8/view/Main.java" />
-        <option value="$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml" />
         <option value="$PROJECT_DIR$/src/cs2410/assn8/resources/menu.fxml" />
         <option value="$PROJECT_DIR$/src/cs2410/assn8/view/Scoreboard.java" />
         <option value="$PROJECT_DIR$/src/cs2410/assn8/controller/HBoxController.java" />
-        <option value="$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java" />
-        <option value="$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java" />
         <option value="$PROJECT_DIR$/src/cs2410/assn8/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java" />
+        <option value="$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml" />
+        <option value="$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java" />
       </list>
     </option>
   </component>
@@ -789,12 +792,12 @@
       <workItem from="1512578850913" duration="28234000" />
       <workItem from="1512622779102" duration="7520000" />
       <workItem from="1512677370046" duration="11682000" />
-      <workItem from="1512692372446" duration="6426000" />
+      <workItem from="1512692372446" duration="10745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101399000" />
+    <option name="totallyTimeSpent" value="105718000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -846,14 +849,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
@@ -869,6 +864,8 @@
           <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1742#2425#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -952,6 +949,8 @@
           <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1742#2425#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1014,6 +1013,8 @@
           <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1742#2425#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1056,6 +1057,8 @@
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1742#2425#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1099,6 +1102,8 @@
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1742#2425#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1171,17 +1176,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/questionmark.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1203,26 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/controller/HBoxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="127" column="75" lean-forward="true" selection-start-line="127" selection-start-column="75" selection-end-line="127" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/view/Scoreboard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1233,20 +1207,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java">
+    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/controller/HBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+        <state relative-caret-position="178">
+          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/view/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="65" column="68" lean-forward="true" selection-start-line="65" selection-start-column="68" selection-end-line="65" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1742#2425#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        <state relative-caret-position="-723">
+          <caret line="53" column="28" lean-forward="true" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/resources/hBox.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="86" lean-forward="true" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs2410/assn8/model/LogicCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="109" column="75" lean-forward="true" selection-start-line="109" selection-start-column="75" selection-end-line="109" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

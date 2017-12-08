@@ -4,6 +4,8 @@ import cs2410.assn8.controller.MainController;
 import cs2410.assn8.view.Scoreboard;
 import javafx.scene.image.ImageView;
 
+import java.util.Timer;
+
 public class LogicCenter {
     private int size;
     private int numBomb;
@@ -19,6 +21,10 @@ public class LogicCenter {
         scoreboardController = _scoreboardController;
         mainController.won = true;
 
+        if (mainController.timer != null)mainController.timer.cancel();
+        mainController.timer = new Timer(true);
+        mainController.currTime = 0;
+        mainController.getHBoxController().timeTickLabel.setText("0");
         mainController.getHBoxController().startBtn.setOnAction(e -> mainController.play(mainController));
         mainController.correctCount = size * size - numBomb;
         scoreboardController.setBombsRemaining(numBomb);
@@ -89,7 +95,6 @@ public class LogicCenter {
     private void gameEnds() {
         String mineImageString = "File:images/mine2.png";
         if (mainController.won) {
-            System.out.println("You winned");
             for (int i = 0; i < size; ++i) {
                 for (int j = 0; j < size; ++j) {
                     if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
@@ -102,7 +107,7 @@ public class LogicCenter {
             }
         }
         else {
-            System.out.println("Noob, rekt");
+            if (mainController.timer != null)mainController.timer.cancel();
             for (int i = 0; i < size; ++i) {
                 for (int j = 0; j < size; ++j) {
                     if (mainController.fullGrid.get(i).get(j).rightClickState == 1 || mainController.fullGrid.get(i).get(j).rightClickState == 2) {

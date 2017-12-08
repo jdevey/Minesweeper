@@ -1,12 +1,15 @@
 package cs2410.assn8.view;
 
+import cs2410.assn8.controller.HBoxController;
 import cs2410.assn8.controller.MainController;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 
 import java.io.File;
+import java.util.TimerTask;
 
 public class Cell extends Button {
 
@@ -21,10 +24,12 @@ public class Cell extends Button {
     public int rightClickState = 0;
     private MainController mainController;
     private Scoreboard scoreboardController;
+    private HBoxController hBoxController;
 
-    public Cell (MainController _mainController, Scoreboard _scoreboardController) {
+    public Cell (MainController _mainController, Scoreboard _scoreboardController, HBoxController _hBoxController) {
         mainController = _mainController;
         scoreboardController = _scoreboardController;
+        hBoxController = _hBoxController;
         isBomb = false;
         isClicked = false;
         rightClickState = 0;
@@ -41,12 +46,32 @@ public class Cell extends Button {
         this.setOnMousePressed(aa -> {
             MouseButton btn = aa.getButton();
             if (btn == MouseButton.PRIMARY && rightClickState != 1 && rightClickState != 2) {
+                if (mainController.correctCount == mainController.size * mainController.size - mainController.numBomb) {
+                    mainController.timer.scheduleAtFixedRate(
+                        new TimerTask() {
+                            @Override
+                            public void run() {
+                                hBoxController.timeTickLabel.setText(String.valueOf(mainController.currTime));
+                                ++mainController.currTime;
+                                /*
+                                Platform.runLater(new Runnable() {
+                                    public void run(
+                                            hBoxController.timeTickLabel.setText(String.valueof(mainController.theTime));
+                                    );
+                                });*/
+                            }
+                        }, 1000, 1000
+                    );
+                }
                 mainController.getLogicController().cellClick(i, j);
             }
             else if (btn == MouseButton.SECONDARY){
                 setClickState(rightClickState);
             }
         });
+    }
+
+    private void startTimer(boolean start) {
 
     }
 

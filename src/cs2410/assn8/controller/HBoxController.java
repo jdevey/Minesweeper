@@ -21,7 +21,7 @@ public class HBoxController {
     private Text timeLabel;
 
     @FXML
-    private Text timeTickLabel;
+    public Text timeTickLabel;
 
     @FXML
     private VBox leftVBox;
@@ -29,5 +29,5 @@ public class HBoxController {
     @FXML
     private VBox rightVBox;
 
-    public Text text1 = new Text();
+    //public Text text1 = new Text();
 }

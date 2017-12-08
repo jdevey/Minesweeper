@@ -51,6 +51,7 @@ public class MainController {
     int gameType;
     public boolean won;
     public Timer timer;
+    public int currTime = 0;
 
     public HBoxController getHBoxController() {
         return hBoxController;
@@ -74,7 +75,7 @@ public class MainController {
         for (int i = 0; i < size; ++i) {
             fullGrid.add(new ArrayList<>());
             for (int j = 0; j < size; ++j) {
-                fullGrid.get(i).add(new Cell(mainController, scoreboardController));
+                fullGrid.get(i).add(new Cell(mainController, scoreboardController, hBoxController));
             }
         }
 
