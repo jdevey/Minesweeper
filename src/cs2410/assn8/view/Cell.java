@@ -13,6 +13,9 @@ import java.util.TimerTask;
 
 /**
  * Class that handles operations related to the individual cell
+ *
+ * @author devey
+ * @version 1.0
  */
 public class Cell extends Button {
 
@@ -25,16 +28,47 @@ public class Cell extends Button {
      */
     private String questionmarkImageString = "File:images/questionmark.png";
 
+    /**
+     * Coordinate of the cell
+     */
     private int i;
+    /**
+     * Coordinate of the cell
+     */
     private int j;
 
+    /**
+     * Whether it's a bomb
+     */
     private boolean isBomb;
+    /**
+     * Whether it's been clicked
+     */
     private boolean isClicked;
+    /**
+     * Right-click status (flag or not)
+     */
     public int rightClickState = 0;
+    /**
+     * Used to access the main controller
+     */
     private MainController mainController;
+    /**
+     * Used to access the scoreboard controller
+     */
     private Scoreboard scoreboardController;
+    /**
+     * Used to access the hbox controller
+     */
     private HBoxController hBoxController;
 
+    /**
+     * Constructor that initializes a few things for the cell
+     *
+     * @param _mainController main control
+     * @param _scoreboardController scoreboard control
+     * @param _hBoxController hbox control
+     */
     public Cell (MainController _mainController, Scoreboard _scoreboardController, HBoxController _hBoxController) {
         mainController = _mainController;
         scoreboardController = _scoreboardController;
@@ -48,7 +82,10 @@ public class Cell extends Button {
         initCellProperties();
     }
 
-    void initCellProperties() {
+    /**
+     * Used to initialize a few things about the cell
+     */
+    private void initCellProperties() {
 
         //this.setOnMouseClicked()
 
@@ -66,6 +103,10 @@ public class Cell extends Button {
         });
     }
 
+    /**
+     * Brings the cell to the next right-click state and deals with those repurcussions
+     * @param state an integer
+     */
     public void setClickState(int state) {
         if (state == 0) {
             rightClickState = 1;
@@ -93,6 +134,9 @@ public class Cell extends Button {
         }
     }
 
+    /**
+     * Deals with the timer
+     */
     private void initTime() {
         if (!mainController.hasStarted) {
             mainController.timer.scheduleAtFixedRate(
@@ -120,31 +164,60 @@ public class Cell extends Button {
         }
     }
 
+    /**
+     * set clicked
+     * @param choice either true or false
+     */
     public void setIsClicked(boolean choice) {
         isClicked = choice;
     }
 
+    /**
+     * get whether it's been clicked
+     * @return boolean
+     */
     public boolean getIsClicked() {
         return isClicked;
     }
 
+    /**
+     * set whether it's a bomb
+     * @param choice
+     */
     public void setIsBomb(boolean choice) {
         isBomb = choice;
     }
 
+    /**
+     * get whether it's a bomb
+     * @return
+     */
     public boolean getIsBomb() {
         return isBomb;
     }
 
+    /**
+     * used while initializing the grid
+     * @param _i i value
+     * @param _j j value
+     */
     public void setIJ(int _i, int _j) {
         i = _i;
         j = _j;
     }
 
+    /**
+     * Get i value
+     * @return i
+     */
     public int getI() {
         return i;
     }
 
+    /**
+     * get j value
+     * @return j
+     */
     public int getJ() {
         return j;
     }

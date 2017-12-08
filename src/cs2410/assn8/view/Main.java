@@ -8,8 +8,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Deals with starting the program and getting it rolling
+ *
+ * @author devey
+ * @version 1.0
+ */
 public class Main extends Application {
     //public static MainController mainController;
+
+    /**
+     * Starts the program with a scene
+     * @param primaryStage a stage
+     * @throws Exception in case of exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/cs2410/assn8/resources/main.fxml"));
@@ -23,42 +35,11 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(mainPane));
         primaryStage.show();
     }
-/*
-    private void initFunctionality() {
-        mainController.initPosition();
-        initGrid();
-        mainController.initStyle();
 
-        //mainController.setBorderPane(bPane);
-        //mainController.setPaneBottom(gPane);
-    }
-
-    private void initGrid() {
-
-        for (int i = 0; i < 20; ++i) {
-            fullGrid.add(new ArrayList<>());
-            for (int j = 0; j < 20; ++j) {
-                fullGrid.get(i).add(new Cell());
-            }
-        }
-
-        for (int i = 0; i < 5; ++i) {
-            for (int j = 0; j < 20; ++j) {
-                fullGrid.get(i).get(j).isBomb = true; //Means that these are bombs
-            }
-        }
-
-        Collections.shuffle(fullGrid);
-
-        //gPane.setGridLinesVisible(true);
-
-        for (int i = 0; i < 20; ++i) {
-            for (int j = 0; j < 20; ++j) {
-                gPane.add(fullGrid.get(i).get(j), i, j);
-            }
-        }
-    }
-*/
+    /**
+     * Launches the program
+     * @param args arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

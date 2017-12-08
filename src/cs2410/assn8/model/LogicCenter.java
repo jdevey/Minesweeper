@@ -9,12 +9,37 @@ import java.util.Timer;
 
 import java.lang.Math.*;
 
+/**
+ * Deals with many of the more complex logical operations found in the program
+ *
+ * @author devey
+ * @version 1.0
+ */
 public class LogicCenter {
+    /**
+     * size of grid
+     */
     private int size;
+    /**
+     * number of bombs
+     */
     private int numBomb;
+    /**
+     * main controller
+     */
     private MainController mainController;
+    /**
+     * scoreboard controller
+     */
     private Scoreboard scoreboardController;
 
+    /**
+     * begins a new game of minesweeperish
+     * @param _mainController controller
+     * @param _scoreboardController controller
+     * @param _size size
+     * @param _numBomb number of bombs
+     */
     public void beginPlaying(MainController _mainController, Scoreboard _scoreboardController, int _size, int _numBomb) {
 
         size = _size;
@@ -63,6 +88,11 @@ public class LogicCenter {
         mainController.setupDone = true;
     }
 
+    /**
+     * Handles cell clicks
+     * @param i int
+     * @param j int
+     */
     public void cellClick(int i, int j) {
         mainController.fullGrid.get(i).get(j).setIsClicked(true);
         mainController.gPane.getChildren().get(i * size + j).setDisable(true);
@@ -76,6 +106,11 @@ public class LogicCenter {
         }
     }
 
+    /**
+     * Recursively goes out from a point
+     * @param i int
+     * @param j int
+     */
     private void recurseFill(int i, int j) {
         if (!mainController.fullGrid.get(i).get(j).getIsBomb()) {
             //scoreboardController.setBombsRemaining(scoreboardController.getBombsRemaining() - 1);
@@ -111,6 +146,9 @@ public class LogicCenter {
         else mainController.fullGrid.get(i).get(j).setText(((Integer)surroundCount).toString());
     }
 
+    /**
+     * Deals with the ending of the game
+     */
     public void gameEnds() {
         if (mainController.timer != null)mainController.timer.cancel();
         String mineImageString = "File:images/mine2.png";
