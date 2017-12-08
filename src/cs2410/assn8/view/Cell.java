@@ -11,9 +11,18 @@ import javafx.scene.input.MouseButton;
 import java.io.File;
 import java.util.TimerTask;
 
+/**
+ * Class that handles operations related to the individual cell
+ */
 public class Cell extends Button {
 
+    /**
+     * Location of the flag image
+     */
     private String flagImageString = "File:images/flag.png";
+    /**
+     * Location of the question mark image
+     */
     private String questionmarkImageString = "File:images/questionmark.png";
 
     private int i;
@@ -46,13 +55,14 @@ public class Cell extends Button {
         this.setOnMousePressed(aa -> {
             MouseButton btn = aa.getButton();
             if (btn == MouseButton.PRIMARY && rightClickState != 1 && rightClickState != 2) {
-                initTime();
                 if (mainController.gameType == 1) mainController.currTime = 9;
                 mainController.getLogicController().cellClick(i, j);
             }
             else if (btn == MouseButton.SECONDARY){
                 setClickState(rightClickState);
             }
+            initTime();
+            mainController.hasStarted = true;
         });
     }
 
@@ -84,7 +94,7 @@ public class Cell extends Button {
     }
 
     private void initTime() {
-        if (mainController.correctCount == mainController.size * mainController.size - mainController.numBomb) {
+        if (!mainController.hasStarted) {
             mainController.timer.scheduleAtFixedRate(
                     new TimerTask() {
                         @Override

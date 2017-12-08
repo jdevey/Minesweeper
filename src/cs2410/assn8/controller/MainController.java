@@ -55,11 +55,12 @@ public class MainController {
 
     public boolean setupDone;
     public int size = 20;
-    public int numBomb = 10;
+    public int numBomb = 100;
     public int correctCount;
 
     public int gameType = 0;
     public boolean won;
+    public boolean hasStarted;
 
     public Timer timer;
     public int currTime = 0;
@@ -80,8 +81,8 @@ public class MainController {
         scoreboardController = new Scoreboard(numBomb);
         fullGrid.clear();
         gPane.getChildren().clear();
-        gPane.setHgap(2);
-        gPane.setVgap(2);
+        //gPane.setHgap(2);
+        //gPane.setVgap(2);
 
         for (int i = 0; i < size; ++i) {
             fullGrid.add(new ArrayList<>());
@@ -134,6 +135,23 @@ public class MainController {
     public void setup(MainController _mainController, Stage primaryStage) {
         this.mainController = _mainController;
         this.stage = primaryStage;
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                "Hello! Welcome to Minesweeperish! \n\n" +
+                        "(30 points, 2 new game types)\n\nIn this " +
+                        "version of Minesweeperish, you " +
+                        "can choose from one of three game types: \n\n" +
+                        "1. Normal Mode \n" +
+                        "2. Speed Demon \n" +
+                        "3. Time's Up \n\n" +
+                        "Normal mode is simply classic minesweeper. " +
+                        "Speed Demon Mode requires the player to choose " +
+                        "at least one new cell every ten seconds, or they " +
+                        "lose! Finally, in Time's Up mode, the user has only " +
+                        "sixty seconds to complete the game, or they lose! \n\n" +
+                        "See the README document for other useful information."
+
+        );
+        alert.showAndWait();
         initMenu();
         play();
     }
@@ -155,5 +173,7 @@ public class MainController {
         normalMode1.setToggleGroup(toggleGroup);
         speedDemon1.setToggleGroup(toggleGroup);
         timesUp1.setToggleGroup(toggleGroup);
+
+        normalMode1.setSelected(true);
     }
 }

@@ -2,9 +2,12 @@ package cs2410.assn8.model;
 
 import cs2410.assn8.controller.MainController;
 import cs2410.assn8.view.Scoreboard;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 
 import java.util.Timer;
+
+import java.lang.Math.*;
 
 public class LogicCenter {
     private int size;
@@ -18,6 +21,7 @@ public class LogicCenter {
         numBomb = _numBomb;
         mainController = _mainController;
         mainController.setupDone = false;
+        mainController.hasStarted = false;
         scoreboardController = _scoreboardController;
         mainController.won = true;
 
@@ -116,10 +120,23 @@ public class LogicCenter {
                     if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
                         mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen; -fx-border-color: black");
                         ImageView mineImg = new ImageView(mineImageString);
-                        mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                        mineImg.setFitHeight(10); mineImg.setFitWidth(7);
                         mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
                     }
                 }
+            }
+
+            if (mainController.gameType == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Congratulations! You won in " + ((Integer)(Math.max(mainController.currTime - 1, 0))).toString() + " seconds!");
+                alert.showAndWait();
+            }
+            else if (mainController.gameType == 2) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Congratulations! You won with " + ((Integer)(Math.min(mainController.currTime + 1, 60))).toString() + " seconds remaining!");
+                alert.showAndWait();
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Congratulations! You won!");
+                alert.showAndWait();
             }
         }
         else {
@@ -130,24 +147,36 @@ public class LogicCenter {
                         if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
                             mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen; -fx-border-color: black");
                             ImageView mineImg = new ImageView(mineImageString);
-                            mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                            mineImg.setFitHeight(10); mineImg.setFitWidth(7);
                             mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
                         }
                         else {
                             mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: gold; -fx-border-color: black");
                             ImageView mineImg = new ImageView(mineImageString);
-                            mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                            mineImg.setFitHeight(10); mineImg.setFitWidth(7);
                             mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
                         }
                     }
                     else if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
                         mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkred; -fx-border-color: black");
                         ImageView mineImg = new ImageView(mineImageString);
-                        mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                        mineImg.setFitHeight(10); mineImg.setFitWidth(7);
                         mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
                     }
                     mainController.fullGrid.get(i).get(j).setDisable(true);
                 }
+            }
+            if (mainController.gameType == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Whoops! You lost in " + ((Integer)(Math.max(mainController.currTime - 1, 0))).toString() + " seconds!");
+                alert.showAndWait();
+            }
+            else if (mainController.gameType == 2) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Whoops! You lost with " + ((Integer)(Math.min(mainController.currTime + 1, 60))).toString() + " seconds remaining!");
+                alert.showAndWait();
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Whoops! You lost!");
+                alert.showAndWait();
             }
         }
     }
