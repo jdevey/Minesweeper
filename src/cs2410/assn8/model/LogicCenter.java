@@ -10,20 +10,22 @@ public class LogicCenter {
     private Scoreboard scoreboardController;
 
     public void beginPlaying(MainController _mainController, Scoreboard _scoreboardController, int _size, int _numBomb) {
+
         size = _size;
         numBomb = _numBomb;
         mainController = _mainController;
+        mainController.setupDone = false;
         scoreboardController = _scoreboardController;
         mainController.won = true;
 
         mainController.correctCount = size * size - numBomb;
-        scoreboardController = new Scoreboard(numBomb);
+        scoreboardController.setBombsRemaining(numBomb);
         mainController.getHBoxController().bombsTickLabel.setText(((Integer)(scoreboardController.getBombsRemaining())).toString());
 
         //Making sure all the bombs are placed and shuffled, color is returned to normal, and flag states are returned to default
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
-                mainController.fullGrid.get(i).get(j).setClickState(0);
+                mainController.fullGrid.get(i).get(j).setClickState(2);
                 mainController.fullGrid.get(i).get(j).setIsClicked(false);
                 mainController.gPane.getChildren().get(size * i + j).setStyle("" +
                         "-fx-background-color: lightblue;" +
@@ -31,6 +33,7 @@ public class LogicCenter {
                         "");
             }
         }
+        mainController.setupDone = true;
     }
 
     public void cellClick(int i, int j) {
@@ -67,14 +70,14 @@ public class LogicCenter {
         if (i > 0 && j > 0) surroundCount +=                mainController.fullGrid.get(i - 1).get(j - 1).getIsBomb() ? 1 : 0;
 
         if (surroundCount == 0) {
-            if (i > 0 && !mainController.fullGrid.get(i - 1).get(j).getIsClicked()) recurseFill(i - 1, j);
-            if (i > 0 && j < size - 1 && !mainController.fullGrid.get(i - 1).get(j + 1).getIsClicked()) recurseFill(i - 1, j + 1);
-            if (j < size - 1 && !mainController.fullGrid.get(i).get(j + 1).getIsClicked()) recurseFill(i, j + 1);
-            if (i < size - 1 && j < size - 1 && !mainController.fullGrid.get(i + 1).get(j + 1).getIsClicked()) recurseFill(i + 1, j + 1);
-            if (i < size - 1 && !mainController.fullGrid.get(i + 1).get(j).getIsClicked()) recurseFill(i + 1, j);
-            if (i < size - 1 && j > 0 && !mainController.fullGrid.get(i + 1).get(j - 1).getIsClicked()) recurseFill(i + 1, j - 1);
-            if (j > 0 && !mainController.fullGrid.get(i).get(j - 1).getIsClicked()) recurseFill(i, j - 1);
-            if (i > 0 && j > 0 && !mainController.fullGrid.get(i - 1).get(j - 1).getIsClicked()) recurseFill(i - 1, j - 1);
+            if (i > 0 && !mainController.fullGrid.get(i - 1).get(j).getIsClicked() && mainController.fullGrid.get(i - 1).get(j).rightClickState == 0) recurseFill(i - 1, j);
+            if (i > 0 && j < size - 1 && !mainController.fullGrid.get(i - 1).get(j + 1).getIsClicked() && mainController.fullGrid.get(i - 1).get(j + 1).rightClickState == 0) recurseFill(i - 1, j + 1);
+            if (j < size - 1 && !mainController.fullGrid.get(i).get(j + 1).getIsClicked() && mainController.fullGrid.get(i).get(j + 1).rightClickState == 0) recurseFill(i, j + 1);
+            if (i < size - 1 && j < size - 1 && !mainController.fullGrid.get(i + 1).get(j + 1).getIsClicked() && mainController.fullGrid.get(i + 1).get(j + 1).rightClickState == 0) recurseFill(i + 1, j + 1);
+            if (i < size - 1 && !mainController.fullGrid.get(i + 1).get(j).getIsClicked() && mainController.fullGrid.get(i + 1).get(j).rightClickState == 0) recurseFill(i + 1, j);
+            if (i < size - 1 && j > 0 && !mainController.fullGrid.get(i + 1).get(j - 1).getIsClicked() && mainController.fullGrid.get(i + 1).get(j - 1).rightClickState == 0) recurseFill(i + 1, j - 1);
+            if (j > 0 && !mainController.fullGrid.get(i).get(j - 1).getIsClicked() && mainController.fullGrid.get(i).get(j - 1).rightClickState == 0) recurseFill(i, j - 1);
+            if (i > 0 && j > 0 && !mainController.fullGrid.get(i - 1).get(j - 1).getIsClicked() && mainController.fullGrid.get(i - 1).get(j - 1).rightClickState == 0) recurseFill(i - 1, j - 1);
         }
 
         if (surroundCount == 0) mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: blue");

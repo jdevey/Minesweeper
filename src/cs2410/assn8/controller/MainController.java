@@ -42,6 +42,7 @@ public class MainController {
 
     private Scoreboard scoreboardController;
 
+    public boolean setupDone;
     public int size = 20;
     public int numBomb = 15;
     public int correctCount;
@@ -62,6 +63,7 @@ public class MainController {
     }
 
     private void initGrid() {
+        scoreboardController = new Scoreboard(numBomb);
         fullGrid.clear();
         gPane.getChildren().clear();
         gPane.setHgap(2);
