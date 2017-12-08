@@ -10,7 +10,6 @@ import java.io.File;
 
 public class Cell extends Button {
 
-    private String mineImageString = "File:images/mine2.png";
     private String flagImageString = "File:images/flag.png";
     private String questionmarkImageString = "File:images/questionmark.png";
 

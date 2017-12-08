@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 
 public class HBoxController {
     @FXML
-    private Button startBtn;
+    public Button startBtn;
 
     @FXML
     private Text bombsLabel;

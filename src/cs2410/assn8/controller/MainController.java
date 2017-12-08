@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
 
 public class MainController {
 
@@ -49,6 +50,7 @@ public class MainController {
 
     int gameType;
     public boolean won;
+    public Timer timer;
 
     public HBoxController getHBoxController() {
         return hBoxController;

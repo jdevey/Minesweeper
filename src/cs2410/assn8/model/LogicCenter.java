@@ -2,6 +2,7 @@ package cs2410.assn8.model;
 
 import cs2410.assn8.controller.MainController;
 import cs2410.assn8.view.Scoreboard;
+import javafx.scene.image.ImageView;
 
 public class LogicCenter {
     private int size;
@@ -18,6 +19,7 @@ public class LogicCenter {
         scoreboardController = _scoreboardController;
         mainController.won = true;
 
+        mainController.getHBoxController().startBtn.setOnAction(e -> mainController.play(mainController));
         mainController.correctCount = size * size - numBomb;
         scoreboardController.setBombsRemaining(numBomb);
         mainController.getHBoxController().bombsTickLabel.setText(((Integer)(scoreboardController.getBombsRemaining())).toString());
@@ -41,7 +43,7 @@ public class LogicCenter {
         mainController.gPane.getChildren().get(i * size + j).setDisable(true);
         if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
             mainController.won = false;
-            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: gold");
+            //mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: gold");
             gameEnds();
         }
         else {
@@ -85,7 +87,47 @@ public class LogicCenter {
     }
 
     private void gameEnds() {
-        if (mainController.won) System.out.println("You winned");
-        else System.out.println("Noob, rekt");
+        String mineImageString = "File:images/mine2.png";
+        if (mainController.won) {
+            System.out.println("You winned");
+            for (int i = 0; i < size; ++i) {
+                for (int j = 0; j < size; ++j) {
+                    if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
+                        mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen");
+                        ImageView mineImg = new ImageView(mineImageString);
+                        mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                        mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
+                    }
+                }
+            }
+        }
+        else {
+            System.out.println("Noob, rekt");
+            for (int i = 0; i < size; ++i) {
+                for (int j = 0; j < size; ++j) {
+                    if (mainController.fullGrid.get(i).get(j).rightClickState == 1 || mainController.fullGrid.get(i).get(j).rightClickState == 2) {
+                        if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
+                            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen");
+                            ImageView mineImg = new ImageView(mineImageString);
+                            mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                            mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
+                        }
+                        else {
+                            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: gold");
+                            ImageView mineImg = new ImageView(mineImageString);
+                            mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                            mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
+                        }
+                    }
+                    else if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
+                        mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkred");
+                        ImageView mineImg = new ImageView(mineImageString);
+                        mineImg.setFitHeight(10); mineImg.setFitWidth(8);
+                        mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
+                    }
+                    mainController.fullGrid.get(i).get(j).setDisable(true);
+                }
+            }
+        }
     }
 }
