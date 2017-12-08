@@ -7,16 +7,19 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 
 public class MainController {
+
+    public Stage stage;
 
     public GridPane gPane = new GridPane();
 
@@ -32,10 +35,17 @@ public class MainController {
     public HBoxController hBoxController;
 
     @FXML
-    private MenuBar menu;
+    public MenuBar menuBar;
 
     @FXML
     public MenuController menuController;
+
+    private MenuBar menuBar1 = new MenuBar();
+    ToggleGroup toggleGroup = new ToggleGroup();
+    private Menu menu1 = new Menu("Gamemode");
+    private RadioMenuItem normalMode1 = new RadioMenuItem("Normal Mode");
+    private RadioMenuItem speedDemon1 = new RadioMenuItem("Speed Demon");
+    private RadioMenuItem timesUp1 = new RadioMenuItem("Time's Up");
 
     private MainController mainController;
 
@@ -45,11 +55,12 @@ public class MainController {
 
     public boolean setupDone;
     public int size = 20;
-    public int numBomb = 15;
+    public int numBomb = 10;
     public int correctCount;
 
-    int gameType;
+    public int gameType = 0;
     public boolean won;
+
     public Timer timer;
     public int currTime = 0;
 
@@ -115,18 +126,34 @@ public class MainController {
     }
 
     private void initPosition() {
-        main.getChildren().remove(menu);
         main.getChildren().remove(hBox);
-        main.setTop(menu);
         main.setCenter(hBox);
         hBox.setPrefHeight(30);
     }
 
-    public void play(MainController _mainController) {
+    public void setup(MainController _mainController, Stage primaryStage) {
         this.mainController = _mainController;
+        this.stage = primaryStage;
+        initMenu();
+        play();
+    }
+
+    public void play() {
         initGrid();
         setPaneBottom(gPane);
         initPosition();
         logicController.beginPlaying(mainController, scoreboardController, size, numBomb);
+    }
+
+    private void initMenu() {
+        menu1.getItems().addAll(normalMode1, speedDemon1, timesUp1);
+        menuBar1.getMenus().add(menu1);
+        main.setTop(menuBar1);
+        normalMode1.setOnAction(e -> gameType = 0);
+        speedDemon1.setOnAction(e -> gameType = 1);
+        timesUp1.setOnAction(e -> gameType = 2);
+        normalMode1.setToggleGroup(toggleGroup);
+        speedDemon1.setToggleGroup(toggleGroup);
+        timesUp1.setToggleGroup(toggleGroup);
     }
 }

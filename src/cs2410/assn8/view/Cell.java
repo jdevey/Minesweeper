@@ -46,33 +46,14 @@ public class Cell extends Button {
         this.setOnMousePressed(aa -> {
             MouseButton btn = aa.getButton();
             if (btn == MouseButton.PRIMARY && rightClickState != 1 && rightClickState != 2) {
-                if (mainController.correctCount == mainController.size * mainController.size - mainController.numBomb) {
-                    mainController.timer.scheduleAtFixedRate(
-                        new TimerTask() {
-                            @Override
-                            public void run() {
-                                hBoxController.timeTickLabel.setText(String.valueOf(mainController.currTime));
-                                ++mainController.currTime;
-                                /*
-                                Platform.runLater(new Runnable() {
-                                    public void run(
-                                            hBoxController.timeTickLabel.setText(String.valueof(mainController.theTime));
-                                    );
-                                });*/
-                            }
-                        }, 1000, 1000
-                    );
-                }
+                initTime();
+                if (mainController.gameType == 1) mainController.currTime = 9;
                 mainController.getLogicController().cellClick(i, j);
             }
             else if (btn == MouseButton.SECONDARY){
                 setClickState(rightClickState);
             }
         });
-    }
-
-    private void startTimer(boolean start) {
-
     }
 
     public void setClickState(int state) {
@@ -99,6 +80,33 @@ public class Cell extends Button {
             }
             rightClickState = 0;
             this.setGraphic(null);
+        }
+    }
+
+    private void initTime() {
+        if (mainController.correctCount == mainController.size * mainController.size - mainController.numBomb) {
+            mainController.timer.scheduleAtFixedRate(
+                    new TimerTask() {
+                        @Override
+                        public void run() {
+                            Platform.runLater( new Runnable() {
+                                public void run() {
+                                    hBoxController.timeTickLabel.setText(String.valueOf(mainController.currTime));
+                                    if (mainController.gameType == 0) {
+                                        ++mainController.currTime;
+                                    }
+                                    else {
+                                        --mainController.currTime;
+                                        if (mainController.currTime <= -1) {
+                                            mainController.won = false;
+                                            mainController.getLogicController().gameEnds();
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }, 1000, 1000
+            );
         }
     }
 

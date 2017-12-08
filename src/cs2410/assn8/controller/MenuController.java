@@ -6,5 +6,14 @@ import javafx.scene.control.MenuItem;
 
 public class MenuController {
     @FXML
-    Menu gamemodeMenuItem;
+    Menu gamemodeMenu;
+
+    @FXML
+    MenuItem normalMode;
+
+    @FXML
+    MenuItem speedDemon;
+
+    @FXML
+    MenuItem timesUp;
 }

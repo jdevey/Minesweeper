@@ -8,7 +8,7 @@
 
 <BorderPane fx:id="main" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cs2410.assn8.controller.MainController">
   <center>
-    <fx:include fx:id="menu" source="menu.fxml" />
+    <fx:include fx:id="menuBar" source="menuBar.fxml" />
   </center>
   <top>
     <fx:include fx:id="hBox" source="hBox.fxml" BorderPane.alignment="CENTER" />

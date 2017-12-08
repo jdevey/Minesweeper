@@ -16,9 +16,9 @@ public class Main extends Application {
         Parent mainPane = loader.load();
         MainController mainController = loader.getController();
 
-        mainController.play(mainController);
+        mainController.setup(mainController, primaryStage);
 
-        primaryStage.setTitle("Minesweeperish");
+        primaryStage.setTitle("Minesweeperish - Normal Mode");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(mainPane));
         primaryStage.show();

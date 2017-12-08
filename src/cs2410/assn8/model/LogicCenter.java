@@ -23,9 +23,24 @@ public class LogicCenter {
 
         if (mainController.timer != null)mainController.timer.cancel();
         mainController.timer = new Timer(true);
-        mainController.currTime = 0;
-        mainController.getHBoxController().timeTickLabel.setText("0");
-        mainController.getHBoxController().startBtn.setOnAction(e -> mainController.play(mainController));
+
+        if (mainController.gameType == 0) {
+            mainController.stage.setTitle("Minesweeperish - Normal Mode");
+            mainController.currTime = 0;
+            mainController.getHBoxController().timeTickLabel.setText("0");
+        }
+        else if (mainController.gameType == 1) {
+            mainController.stage.setTitle("Minesweeperish - Speed Demon");
+            mainController.currTime = 10;
+            mainController.getHBoxController().timeTickLabel.setText("10");
+        }
+        else {
+            mainController.stage.setTitle("Minesweeperish - Time's Up");
+            mainController.currTime = 60;
+            mainController.getHBoxController().timeTickLabel.setText("60");
+        }
+
+        mainController.getHBoxController().startBtn.setOnAction(e -> mainController.play());
         mainController.correctCount = size * size - numBomb;
         scoreboardController.setBombsRemaining(numBomb);
         mainController.getHBoxController().bombsTickLabel.setText(((Integer)(scoreboardController.getBombsRemaining())).toString());
@@ -88,17 +103,18 @@ public class LogicCenter {
             if (i > 0 && j > 0 && !mainController.fullGrid.get(i - 1).get(j - 1).getIsClicked() && mainController.fullGrid.get(i - 1).get(j - 1).rightClickState == 0) recurseFill(i - 1, j - 1);
         }
 
-        if (surroundCount == 0) mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: blue");
+        if (surroundCount == 0) mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: blue; -fx-border-color: black");
         else mainController.fullGrid.get(i).get(j).setText(((Integer)surroundCount).toString());
     }
 
-    private void gameEnds() {
+    public void gameEnds() {
+        if (mainController.timer != null)mainController.timer.cancel();
         String mineImageString = "File:images/mine2.png";
         if (mainController.won) {
             for (int i = 0; i < size; ++i) {
                 for (int j = 0; j < size; ++j) {
                     if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
-                        mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen");
+                        mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen; -fx-border-color: black");
                         ImageView mineImg = new ImageView(mineImageString);
                         mineImg.setFitHeight(10); mineImg.setFitWidth(8);
                         mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
@@ -112,20 +128,20 @@ public class LogicCenter {
                 for (int j = 0; j < size; ++j) {
                     if (mainController.fullGrid.get(i).get(j).rightClickState == 1 || mainController.fullGrid.get(i).get(j).rightClickState == 2) {
                         if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
-                            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen");
+                            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkgreen; -fx-border-color: black");
                             ImageView mineImg = new ImageView(mineImageString);
                             mineImg.setFitHeight(10); mineImg.setFitWidth(8);
                             mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
                         }
                         else {
-                            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: gold");
+                            mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: gold; -fx-border-color: black");
                             ImageView mineImg = new ImageView(mineImageString);
                             mineImg.setFitHeight(10); mineImg.setFitWidth(8);
                             mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
                         }
                     }
                     else if (mainController.fullGrid.get(i).get(j).getIsBomb()) {
-                        mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkred");
+                        mainController.gPane.getChildren().get(i * size + j).setStyle("-fx-background-color: darkred; -fx-border-color: black");
                         ImageView mineImg = new ImageView(mineImageString);
                         mineImg.setFitHeight(10); mineImg.setFitWidth(8);
                         mainController.fullGrid.get(i).get(j).setGraphic(mineImg);
